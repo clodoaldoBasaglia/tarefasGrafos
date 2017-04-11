@@ -6,6 +6,7 @@
 package grafos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,6 +26,7 @@ public class Grafo {
     }
 
     public Grafo() {
+        this.grafo = new HashMap<>();
     }
 
 }
