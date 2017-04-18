@@ -16,6 +16,7 @@ public class VerticeBL extends Vertice {
     private int d;
 
     public VerticeBL() {
+        this.cor = "branco";
     }
 
     @Override
