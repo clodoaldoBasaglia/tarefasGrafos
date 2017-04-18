@@ -26,6 +26,20 @@ public class BuscaEmProfundidade {
         }
     }
 
+    private void buscaEmProfundidadeVisita(Map<VerticeBL, ArrayList<VerticeBL>> grafo, VerticeBL v) {
+        Iterator<Map.Entry<VerticeBL, ArrayList<VerticeBL>>> i = grafo.entrySet().iterator();
+        this.tempo = this.tempo + 1;
+        v.setDescoberta(tempo);
+        v.setCor("cinza");
+        ArrayList<VerticeBL> get = grafo.get(v);
+        for (VerticeBL verticeBL : get) {
+            buscaEmProfundidadeVisita(grafo, verticeBL);
+        }
+        v.setCor("preto");
+        this.tempo=this.tempo+1;
+        v.setFim(tempo);
+    }
+
     public void buscaEmProfundidade(Grafo g) {
         Map<VerticeBL, ArrayList<VerticeBL>> grafo = g.getGrafo();
         Iterator<Map.Entry<VerticeBL, ArrayList<VerticeBL>>> i = grafo.entrySet().iterator();
@@ -35,6 +49,12 @@ public class BuscaEmProfundidade {
             v.setCor("branco");
         }
         this.tempo = 0;
+        while (i.hasNext()) {
+            VerticeBL v = i.next().getKey();
+            if (v.getCor().equalsIgnoreCase("branco")) {
+                buscaEmProfundidadeVisita(grafo, v);
+            }
+        }
     }
 
 }
