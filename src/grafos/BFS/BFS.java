@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package grafos.BFS;
-import grafos.Grafo;
 import grafos.VerticeBL;
 import java.util.*;
 
@@ -22,7 +21,6 @@ public class BFS {
         //Setando a cor cinza, pois o vértice acabou de ser visitado e o d como 0
         s.setCor("cinza");
         s.setD(0);
-//        System.out.println(vertices.get(0));
         
 //      Criando uma fila para a busca em largura dos vértices adjacentes.
         Queue<VerticeBL> queue = new LinkedList<VerticeBL>();
