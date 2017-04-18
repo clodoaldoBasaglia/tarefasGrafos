@@ -14,6 +14,10 @@ public class VerticeBL extends Vertice {
     private String id;
     private String cor;
     private int d;
+    private int descoberta;
+    private int fim;
+    
+    
 
     public VerticeBL() {
         this.cor = "branco";
@@ -46,6 +50,22 @@ public class VerticeBL extends Vertice {
 
     public void setD(int d) {
         this.d = d;
+    }
+
+    public int getDescoberta() {
+        return descoberta;
+    }
+
+    public void setDescoberta(int descoberta) {
+        this.descoberta = descoberta;
+    }
+
+    public int getFim() {
+        return fim;
+    }
+
+    public void setFim(int fim) {
+        this.fim = fim;
     }
 
 }
