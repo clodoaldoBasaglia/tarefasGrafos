@@ -14,23 +14,20 @@ import java.util.*;
  */
 public class BFS {
     //
-    public void initBfs(Grafo g)
+    public void bfs(Map<VerticeBL, ArrayList<VerticeBL>> g, VerticeBL s)
     {
-        
-    }
-    public void bfs(Grafo g, VerticeBL s)
-    {
-        /*Inicializando um map com o grafo e em seguida pegando a lista de adjacência
-         do vértice inical da busca (s)*/
-        Map<VerticeBL, ArrayList<VerticeBL>> grafo = g.getGrafo();
-        ArrayList<VerticeBL> vertices = grafo.get(s);
+        /*Pegando a lista de adjacência do vértice(s) inical da busca*/
+        ArrayList<VerticeBL> vertices = g.get(s);
        
-        vertices.get(0).setCor("Cinza");     
+        //Setando a cor cinza, pois o vértice acabou de ser visitado e o d como 0
+        s.setCor("cinza");
+        s.setD(0);
+//        System.out.println(vertices.get(0));
         
-        
+//      Criando uma fila para a busca em largura dos vértices adjacentes.
         Queue<VerticeBL> queue = new LinkedList<VerticeBL>();
 
-        if(vertices.get(0) == null) return;
+        if(s == null) return;
         
         queue.add(s);
 
@@ -41,20 +38,24 @@ public class BFS {
         {
            
             VerticeBL r = queue.remove(); 
-            ArrayList<VerticeBL> v = grafo.get(r);
-            
-            for(VerticeBL n: v)
-            {
-                if(n.getCor().equals("Branco"))
+            ArrayList<VerticeBL> v = g.get(r);
+//            System.out.println(r);
+//            System.out.println(v);
+
+            if(v != null){
+                for(VerticeBL n: v)
                 {
-                    queue.add(n);
-                    n.setCor("Cinza");
+                    if(n.getCor().equals("branco"))
+                    {
+                        queue.add(n);
+                        n.setCor("cinza");
+                        n.setD(r.getD() + 1);
+                    }
                 }
             }
+            r.setCor("preto");
+//            System.out.println(r);
         }
-
-
     }
-    
 }
 
