@@ -6,6 +6,8 @@
 package grafos;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  *
@@ -13,7 +15,14 @@ import java.util.ArrayList;
  */
 public class OrdenacaoTopologica {
 
-    public ArrayList<VerticeBL> TopologicalSort() {
+    public ArrayList<VerticeBL> TopologicalSort(Map<VerticeBL, ArrayList<VerticeBL>> grafo) {
+        Iterator<Map.Entry<VerticeBL, ArrayList<VerticeBL>>> i = grafo.entrySet().iterator();
+        BuscaEmProfundidade bep = new BuscaEmProfundidade();
+        while (i.hasNext()) {
+            VerticeBL v = i.next().getKey();
+//            Grafo g = grafo.get(v);
+//            bep.buscaEmProfundidade(grafo.get(v));
+        }
         return null;
     }
 }
