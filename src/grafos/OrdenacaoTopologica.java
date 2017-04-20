@@ -5,10 +5,15 @@
  */
 package grafos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author clodoaldo
  */
 public class OrdenacaoTopologica {
-    
+
+    public ArrayList<VerticeBL> TopologicalSort() {
+        return null;
+    }
 }
