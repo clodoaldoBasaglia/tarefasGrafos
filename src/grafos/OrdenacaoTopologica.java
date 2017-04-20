@@ -20,8 +20,9 @@ public class OrdenacaoTopologica {
         BuscaEmProfundidade bep = new BuscaEmProfundidade();
         while (i.hasNext()) {
             VerticeBL v = i.next().getKey();
-//            Grafo g = grafo.get(v);
-//            bep.buscaEmProfundidade(grafo.get(v));
+            Grafo g = new Grafo();
+            g.setGrafo(grafo);
+            bep.buscaEmProfundidade(g);
         }
         return null;
     }
