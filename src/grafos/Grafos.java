@@ -5,6 +5,7 @@
  */
 package grafos;
 
+import grafos.BFS.BFS;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -20,6 +21,8 @@ public class Grafos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        BFS buscaEmLargura = new BFS();
+        
         VerticeBL a = new VerticeBL();
         a.setId("a");
         VerticeBL b = new VerticeBL();
@@ -28,12 +31,23 @@ public class Grafos {
         c.setId("c");
         VerticeBL d = new VerticeBL();
         d.setId("d");
+        
         Grafo g = new Grafo();
-        ArrayList<VerticeBL> abl = new ArrayList<>();
         Map<VerticeBL, ArrayList<VerticeBL>> grafo = g.getGrafo();
+        
+        ArrayList<VerticeBL> abl = new ArrayList<>();
+        ArrayList<VerticeBL> cbl = new ArrayList<>();
+        
         abl.add(b);
-        System.out.println(abl.size());
+        abl.add(c);
+        
+        cbl.add(d);
+//        System.out.println(abl.size());
         grafo.put(a, abl);
+        grafo.put(c, cbl);
+        
+        buscaEmLargura.bfs(grafo, a);
+        
         printGrafo(grafo);
     }
 
