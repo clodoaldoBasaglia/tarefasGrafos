@@ -38,11 +38,7 @@ public class Grafos {
     }
 
     private static void printGrafo(Map<VerticeBL, ArrayList<VerticeBL>> grafo) {
-//        Iterator<Map.Entry<String, String>> i = codes.entrySet().iterator();
-//        while (i.hasNext()) {
-//            String key = i.next().getKey();
-//            System.out.println(key + ", " + codes.get(key));
-//        }
+
         Iterator<Map.Entry<VerticeBL, ArrayList<VerticeBL>>> i = grafo.entrySet().iterator();
         while (i.hasNext()) {
             VerticeBL v = i.next().getKey();
